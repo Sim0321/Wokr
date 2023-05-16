@@ -17,27 +17,18 @@ import React, { useState } from 'react';
 import ReactGA from 'react-ga4';
 import { toast } from 'react-toastify';
 import { useSetRecoilState } from 'recoil';
-import { styled } from 'styled-components';
 
 const PastTodo = () => {
   const [show, setShow] = useState(true);
 
   const { data: getPastTodo } = useQuery(['PASTTODO'], GetPastTodo, {
-    onSuccess: response => {
-      // console.log('기한만료 :', response);
-    },
-    onError: response => {
-      // console.log(response);
-    },
+    onSuccess: response => {},
+    onError: response => {},
   });
 
   const { data: getMember } = useQuery(['MEMBER'], GetUser, {
-    onSuccess: response => {
-      // console.log('user :', response);
-    },
-    onError: response => {
-      // console.log(response);
-    },
+    onSuccess: response => {},
+    onError: response => {},
   });
 
   const Title = ({ el }) => {
@@ -56,7 +47,6 @@ const PastTodo = () => {
   };
 
   const Priority = ({ el }) => {
-    // console.log(el.priority);
     if (el.priority === 1) {
       return <img src={red} alt='' />;
     } else if (el.priority === 2) {
@@ -129,7 +119,6 @@ const PastTodo = () => {
   };
 
   const FilterMyTodo = ({ el }) => {
-    // console.log(el.myToDo);
     if (el.myToDo === true) {
       return (
         <div className='item'>

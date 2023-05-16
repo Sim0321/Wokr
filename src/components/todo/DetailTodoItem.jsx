@@ -1,4 +1,4 @@
-import { PatchCheck, PatchTodo } from '../../apis/apiPATCH';
+import { PatchCheck } from '../../apis/apiPATCH';
 import {
   PostCompletionTodo,
   PostExpirationTodo,
@@ -12,23 +12,12 @@ import red from '../../assets/todoRed.png';
 import yellow from '../../assets/todoYellow.png';
 import warn from '../../assets/warn.png';
 import {
-  change,
-  clickDate,
-  completionArray,
   completionAtom,
   expirationAtom,
-  filterTeamMemberSelector,
-  getOKRData,
   isDone,
-  krDataAtom,
-  myUserIdSelecctor,
   patchTodoInfo,
   progressAtom,
-  teamMemberTodoSelector,
-  todayFormat,
   todoDateInfo,
-  userId,
-  userInfo,
 } from '../../store/store';
 import {
   StCompletionTodo,
@@ -36,7 +25,6 @@ import {
   StProgressTodo,
 } from '../../styles/todo.styled';
 import { DDay, TodoDetailHeader } from '../../styles/tododetail.styled';
-import Loading from '../global/Loading';
 import Potal from '../global/globalModal/Potal';
 import TodoPathModal from '../global/globalModal/TodoPathModal';
 import Filter from './Filter';
@@ -44,7 +32,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
 import ReactGA from 'react-ga4';
 import { toast } from 'react-toastify';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 
 const DetailTodoItem = () => {
   const queryClient = useQueryClient();
@@ -84,15 +72,10 @@ const DetailTodoItem = () => {
 
   const [info, setInfo] = useRecoilState(todoDateInfo);
   const [isCompletion, setIsCompletion] = useRecoilState(isDone);
-  // console.log(isCompletion);
 
   const [expiration, setExpiration] = useRecoilState(expirationAtom);
   const [progress, setProgress] = useRecoilState(progressAtom);
   const [completion, setCompletion] = useRecoilState(completionAtom);
-
-  // console.log('진행 중 :', progress);
-  // console.log('완료 :', completion);
-  // console.log('기간만료 :', expiration);
 
   // 기한 만료
   const { mutate: expirationTodo } = useMutation(PostExpirationTodo, {
@@ -114,8 +97,6 @@ const DetailTodoItem = () => {
       setCompletion(response);
     },
   });
-
-  // console.log(expiration);
 
   // 기한 만료 컴포넌트
   const ExpirationTodo = () => {
@@ -369,9 +350,7 @@ const DetailTodoItem = () => {
       progressTodo({ info });
       completionTodo({ info });
     },
-    onError: response => {
-      // console.log(response);
-    },
+    onError: response => {},
   });
 
   const Check = ({ data }) => {
@@ -414,7 +393,6 @@ const DetailTodoItem = () => {
       info.KeyResultIds !== null &&
       info.teamMembers !== null &&
       info.KeyResultIds.length !== 0 &&
-      // info.KeyResultIds.length === 0 &&
       isCompletion.length !== 0 &&
       (isCompletion.includes('done') === true ||
         isCompletion.includes('notDone') === true)
@@ -424,9 +402,6 @@ const DetailTodoItem = () => {
       completionTodo({ info });
     }
   }, [info, isCompletion]);
-
-  // console.log(info);
-  // console.log(isCompletion);
 
   return (
     <>

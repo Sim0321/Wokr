@@ -1,8 +1,5 @@
 import { GetOKR } from '../../../apis/apiGET';
-import Arrow from '../../../assets/dropdownArrow.png';
-import { okrDataAtom } from '../../../store/store';
 import {
-  DropIcon,
   OkrDropBox,
   OkrDropContainer,
   OkrItem,
@@ -11,7 +8,6 @@ import {
 import { useDropDown } from './dropdown';
 import { useQuery } from '@tanstack/react-query';
 import { useState, useRef } from 'react';
-import { useRecoilValue } from 'recoil';
 
 const OkrDropDown = ({ setKid, setOid, title }) => {
   const dropDownRef = useRef(null);
@@ -25,7 +21,6 @@ const OkrDropDown = ({ setKid, setOid, title }) => {
     onSuccess: response => {},
     onError: response => {},
   });
-  // const getOkrData = useRecoilValue(okrDataAtom);
 
   const ValueClick = e => {
     setIsOpen(!isOpen);

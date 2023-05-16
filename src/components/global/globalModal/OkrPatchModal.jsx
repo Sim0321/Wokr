@@ -5,7 +5,6 @@ import close from '../../../assets/close.png';
 import object from '../../../assets/object.png';
 import trash from '../../../assets/trash.png';
 import { patchOKRInfo } from '../../../store/store';
-import Toast from '../Toast';
 import ColorDropDown from '../globaldropdown/ColorDropDown';
 import { OnChange } from '../onChange';
 import { ModalBackground, ModalBox, OKRBox } from './modal.styled';
@@ -260,7 +259,6 @@ const OkrPatchModal = ({ onCloseModal, modalRef, modalOutSideClick }) => {
               <p className='deleteName'>삭제</p>
             </div>
           </div>
-          {/* <Toast /> */}
         </>
       </ModalBox>
     </>

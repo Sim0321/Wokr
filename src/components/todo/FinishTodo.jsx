@@ -1,4 +1,3 @@
-import { GetPostTodo } from '../../apis/apiGET';
 import { PatchCheck } from '../../apis/apiPATCH';
 import badgeS from '../../assets/badgeS.png';
 import blue from '../../assets/todoBlue.png';
@@ -9,17 +8,14 @@ import {
   TodoDetailHeader,
   TodoDetailItem,
 } from '../../styles/tododetail.styled';
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 
 const FinishTodo = ({ el }) => {
   const [show, setShow] = useState(true);
 
-  // console.log('el :', el);
-
   const Priority = () => {
-    // console.log(el.priority);
     if (el.priority === 1) {
       return <img src={red} alt='' />;
     } else if (el.priority === 2) {
@@ -57,7 +53,6 @@ const FinishTodo = ({ el }) => {
   };
 
   const Title = ({ ct }) => {
-    // console.log(ct);
     if (ct.color === null) {
       return (
         <div className='colorNull' style={{ color: '#9b9b9b' }}>
@@ -73,8 +68,6 @@ const FinishTodo = ({ el }) => {
   };
 
   const FilterMyTodo = ({ ct }) => {
-    // console.log('ct :', ct);
-    // console.log(ct.myTodo === true);
     if (ct.myToDo === true) {
       return (
         <div className='item'>

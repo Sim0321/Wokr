@@ -11,10 +11,8 @@ import memo from '../../../assets/memo.png';
 import todo from '../../../assets/todoTODO.png';
 import trash from '../../../assets/trash.png';
 import {
-  change,
   completionAtom,
   expirationAtom,
-  myChange,
   patchTodoInfo,
   progressAtom,
   todoDateInfo,
@@ -25,7 +23,6 @@ import PatchPriority from './../globaldropdown/PatchPriority';
 import {
   ModalBackground,
   ModalBox,
-  OKRBox,
   TodoBox,
   ToggleContainer,
 } from './modal.styled';
@@ -90,7 +87,6 @@ const TodoPathModal = ({ onCloseModal }) => {
   const [defaultFormat, setDefaultFormat] = useState({ format: 'YYYY-MM-DD' });
 
   const todoInfo = useRecoilValue(patchTodoInfo);
-  // console.log(todoInfo);
 
   const [title, setTitle] = useState({
     memo: todoInfo.memo,
@@ -101,8 +97,6 @@ const TodoPathModal = ({ onCloseModal }) => {
     startDateTime: todoInfo.startDateTime,
     toDo: todoInfo.toDo,
   });
-
-  // console.log(title);
 
   const [startWithTime, setStartWithTime] = useState(false);
   const [endWithTime, setEndWithTime] = useState(false);
@@ -167,10 +161,6 @@ const TodoPathModal = ({ onCloseModal }) => {
 
   const queryClient = useQueryClient();
 
-  // const [count, setCount] = useRecoilState(change);
-  // const [myCount, setMyCount] = useRecoilState(myChange);
-  // console.log(count);
-
   const setExpiration = useSetRecoilState(expirationAtom);
   const setProgress = useSetRecoilState(progressAtom);
   const setCompletion = useSetRecoilState(completionAtom);
@@ -209,7 +199,6 @@ const TodoPathModal = ({ onCloseModal }) => {
       expirationTodo({ info });
       progressTodo({ info });
       completionTodo({ info });
-      // queryClient.setQueryData(['patchTodo'], title);
     },
     onError: response => {
       if (process.env.NODE_ENV !== 'development') {
@@ -259,7 +248,6 @@ const TodoPathModal = ({ onCloseModal }) => {
         });
       }
       queryClient.invalidateQueries(['ToDo']);
-      // queryClient.invalidateQueries(['ALLTODO']);
       onCloseModal();
       toast('해당 To Do가 삭제가 완료되었습니다.');
     },
@@ -270,12 +258,8 @@ const TodoPathModal = ({ onCloseModal }) => {
           action: 'TODO 삭제 실패',
         });
       }
-      // alert('팀장 및 본인이 작성한 OKR만 수정가능합니다.');
     },
   });
-
-  const [oid, setOid] = useState(0);
-  const [kid, setKid] = useState(0);
 
   return (
     <>
@@ -286,11 +270,6 @@ const TodoPathModal = ({ onCloseModal }) => {
           <img src={close} alt='' onClick={onCloseModal} />
         </div>
         <TodoBox>
-          {/* <div className='object itemBox'>
-            <img src={todoOkr} alt='' />
-            <OkrDropDown title={title} setKid={setKid} setOid={setOid} />
-          </div> */}
-
           <div className='object itemBox'>
             <img src={todo} alt='' />
             <input
@@ -475,7 +454,6 @@ const TodoPathModal = ({ onCloseModal }) => {
             </div>
             <div className='priorityBox'>
               <PatchPriority setTitle={setTitle} title={title} />
-              {/* <PriorityDropDown todoInfo={todoInfo} setTodoInfo={setTodoInfo} /> */}
             </div>
           </div>
         </TodoBox>
@@ -484,7 +462,6 @@ const TodoPathModal = ({ onCloseModal }) => {
           <button onClick={onCloseModal} className='cancel'>
             취소
           </button>
-          {/* <button className='next' onClick={createT}> */}
           <button className='next' onClick={patchT}>
             저장
           </button>
@@ -497,8 +474,6 @@ const TodoPathModal = ({ onCloseModal }) => {
             <p className='deleteName'>삭제</p>
           </div>
         </div>
-
-        {/* <Toast /> */}
       </ModalBox>
     </>
   );

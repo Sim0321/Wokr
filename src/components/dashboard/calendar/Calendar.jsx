@@ -1,4 +1,4 @@
-import { GetMyTodo, GetTodo } from '../../../apis/apiGET';
+import { GetMyTodo } from '../../../apis/apiGET';
 import { patchTodoInfo } from '../../../store/store';
 import { Container } from '../../../styles/Calendar.styled';
 import Potal from '../../global/globalModal/Potal';
@@ -59,7 +59,6 @@ export default function Calendar() {
 
   const { data: myTodo } = useQuery(['ToDo'], GetMyTodo, {
     onSuccess: response => {
-      // console.log(response);
       const completion = [...response.completionTodo];
       const progress = [...response.progressTodo];
       const newArray = [...completion, ...progress];

@@ -2,7 +2,7 @@ import filter from '../../assets/filter1.png';
 import { isDone } from '../../store/store';
 import { StDoneFilter } from '../../styles/tododetail.styled';
 import { useDropDown } from '../global/globaldropdown/dropdown';
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { GrClose } from 'react-icons/gr';
 import { useRecoilState } from 'recoil';
@@ -12,12 +12,9 @@ const DoneFilter = () => {
 
   const [isCompletion, setIsCompletion] = useRecoilState(isDone);
 
-  // console.log('isCompletion :', isCompletion);
-
   const [DoneDropOn, setDoneDropOn] = useDropDown(DoneDropRef, false);
 
   const DoneDroponHandler = () => {
-    // console.log(DoneDropOn);
     setDoneDropOn(!DoneDropOn);
   };
 
@@ -30,27 +27,24 @@ const DoneFilter = () => {
   };
 
   const thisDelete = item => {
-    console.log(item);
-    // setCheckedList(checkedList.filter(el => el !== item));
     setIsCompletion(isCompletion.filter(el => el !== item));
   };
 
   const removeAll = () => {
-    // setCheckedList([]);
     setIsCompletion([]);
   };
 
-  const Title = () => {
-    if (isCompletion.length === 0) {
-      return <span onClick={DoneDroponHandler}>완료 : 선택사항 없음</span>;
-    } else if (isCompletion.includes('done') && isCompletion.length === 1) {
-      return <span onClick={DoneDroponHandler}>완료 : 완료</span>;
-    } else if (isCompletion.includes('notDone') && isCompletion.length === 1) {
-      return <span onClick={DoneDroponHandler}>완료 : 미완료</span>;
-    } else {
-      return <span onClick={DoneDroponHandler}>완료 : 전체</span>;
-    }
-  };
+  // const Title = () => {
+  //   if (isCompletion.length === 0) {
+  //     return <span onClick={DoneDroponHandler}>완료 : 선택사항 없음</span>;
+  //   } else if (isCompletion.includes('done') && isCompletion.length === 1) {
+  //     return <span onClick={DoneDroponHandler}>완료 : 완료</span>;
+  //   } else if (isCompletion.includes('notDone') && isCompletion.length === 1) {
+  //     return <span onClick={DoneDroponHandler}>완료 : 미완료</span>;
+  //   } else {
+  //     return <span onClick={DoneDroponHandler}>완료 : 전체</span>;
+  //   }
+  // };
 
   return (
     <StDoneFilter ref={DoneDropRef}>
@@ -80,7 +74,6 @@ const DoneFilter = () => {
                 </div>
               ))}
             </div>
-            {/* <div className='closeBtn'></div> */}
             <AiFillCloseCircle className='closeBtn' onClick={removeAll} />
           </div>
           <ul>
@@ -106,17 +99,6 @@ const DoneFilter = () => {
               />
               <span className='done'>미완료</span>
             </li>
-            {/* <li>
-              <input
-                type='checkbox'
-                onChange={e =>
-                  onCheckedElement(e.target.checked, e.target.value)
-                }
-                value='done'
-                checked={isCompletion.status === 'all' ? true : false}
-              />
-              <span className='done'>전체</span>
-            </li> */}
           </ul>
         </div>
       )}

@@ -77,7 +77,6 @@ export const ModalBox = styled.div`
     .next {
       background-color: var(--main-color);
       color: #fff;
-      /* border: 1px solid #ff8336; */
       border: none;
       margin-left: 30px;
       box-shadow: 0px 2px 4px rgba(255, 131, 54, 0.7);
@@ -92,8 +91,6 @@ export const ModalBox = styled.div`
       border: none;
       border-radius: 7px;
       cursor: pointer;
-      /* position: absolute; */
-      /* bottom: 23px; */
       right: 25px;
     }
   }
@@ -143,7 +140,6 @@ export const OKRBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* background-color: pink; */
 
   .object {
     margin-bottom: 2.7rem;
@@ -168,7 +164,6 @@ export const OKRBox = styled.div`
       }
       :focus {
         border: var(--input-hover);
-        /* filter: var(--input-focus); */
       }
     }
     img {
@@ -179,7 +174,6 @@ export const OKRBox = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    /* width: 44.8rem; */
     height: 4rem;
     background-color: #4b4b4b;
     color: #fff;
@@ -197,7 +191,6 @@ export const OKRBox = styled.div`
   .kr {
     margin: 0.9rem 0;
     justify-content: space-between;
-    /* background-color: pink; */
     .plus {
       margin-left: 0.8rem;
     }
@@ -209,7 +202,6 @@ export const OKRBox = styled.div`
     padding: 0.9rem 1.4rem;
     display: flex;
     align-items: center;
-    /* background-color: skyblue; */
     img {
       margin-right: 1.3rem;
     }
@@ -396,7 +388,6 @@ export const KRBox = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    /* width: 44.8rem; */
     height: 4rem;
     background-color: #4b4b4b;
     color: #fff;
@@ -429,7 +420,6 @@ export const KRBox = styled.div`
       }
       :focus {
         border: var(--input-hover);
-        /* filter: var(--input-focus); */
       }
     }
   }
@@ -445,7 +435,6 @@ export const NotHaveEl = styled.div`
   color: var(--main-color);
   font-size: 2rem;
   font-weight: 500;
-  /* background-color: pink; */
   .btnFlex {
     ${props => props.theme.row_center}
     gap: 1rem;
@@ -502,14 +491,12 @@ export const ToggleContainer = styled.div`
 
 export const TodoBox = styled.div`
   width: 100%;
-  /* height: 16.6rem; */
   background-color: #f8f8f8;
   border-radius: 7px;
   padding: 3rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* background-color: pink; */
 
   .object {
     margin-bottom: 2.7rem;
@@ -521,7 +508,6 @@ export const TodoBox = styled.div`
     display: flex;
     align-items: center;
     position: relative;
-    /* background-color: pink; */
     input {
       width: 100%;
       height: 4rem;
@@ -535,7 +521,6 @@ export const TodoBox = styled.div`
       }
       :focus {
         border: var(--input-hover);
-        /* filter: var(--input-focus); */
       }
     }
     img {
@@ -549,7 +534,6 @@ export const TodoBox = styled.div`
     padding: 0.9rem 1.4rem;
     display: flex;
     align-items: center;
-    /* background-color: skyblue; */
     img {
       margin-right: 1.3rem;
     }

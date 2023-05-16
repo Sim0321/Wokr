@@ -1,7 +1,6 @@
 import { GetKR } from '../../apis/apiGET';
 import filter from '../../assets/filter1.png';
-import { krDataAtom, todoDateInfo } from '../../store/store';
-import { okrCheckSelector } from '../../store/store';
+import { todoDateInfo } from '../../store/store';
 import { StKrFilter } from '../../styles/tododetail.styled';
 import { useDropDown } from '../global/globaldropdown/dropdown';
 import { useQuery } from '@tanstack/react-query';
@@ -14,23 +13,15 @@ const KrFilter = () => {
   const krDropRef = useRef(null);
   //드롭다운이 보여지는 상태관리
   const [krDropOn, setKrDropon] = useDropDown(krDropRef, false);
-  // const [krDropOn, setKrDropon] = useState(false);
   const [info, setInfo] = useRecoilState(todoDateInfo);
-  // console.log(info);
 
   const [checkedList, setCheckedList] = useState([]);
   const [checkInfo, setCheckInfo] = useState([]);
   const [forData, setForData] = useState([]);
 
-  // console.log('***** forData :', forData);
-  // console.log('checkedList :', checkedList);
-  // console.log('checkInfo :', checkInfo);
-
   const { data: getKrData } = useQuery(['KR'], GetKR, {
     refetchOnWindowFocus: false,
     onSuccess: response => {
-      // console.log('getKr 함');
-      // setCheckedList(response);
       const none = [{ keyResultId: 0, color: '#9b9b9b' }];
       const addNone = [...response, ...none];
       setCheckInfo(addNone);
@@ -42,11 +33,9 @@ const KrFilter = () => {
   });
 
   const thisDelete = item => {
-    // console.log(item.keyResultId);
     setCheckedList(checkedList.filter(el => el !== item));
     setForData(forData?.filter(el => el !== item.keyResultId));
     const filter = info.KeyResultIds.filter(el => el !== item.keyResultId);
-    // console.log(typeof filter);
     setInfo({
       ...info,
       KeyResultIds: filter,
@@ -70,19 +59,12 @@ const KrFilter = () => {
       setCheckedList([...checkedList, JSON.parse(item)]);
 
       setForData([...forData, JSON.parse(item).keyResultId]);
-      // console.log('filter :', JSON.parse(item).keyResultId);
-
-      // setInfo({ ...info, KeyResultIds: JSON.parse(item).keyResultId });
       setInfo({
         ...info,
         KeyResultIds: [...info.KeyResultIds, JSON.parse(item).keyResultId],
       });
     } else if (!checked) {
       const filter = checkedList.filter(el => JSON.stringify(el) !== item);
-      // console.log(
-      //   'filter :',
-      //   forData?.filter(el => el !== JSON.parse(item).keyResultId)
-      // );
       setCheckedList(filter);
 
       setForData(forData?.filter(el => el !== JSON.parse(item).keyResultId));
@@ -123,7 +105,6 @@ const KrFilter = () => {
 
       {krDropOn && (
         <div className='krDrop'>
-          {/* <div onClick={krDroponHandler}>X</div> */}
           <div className='inputBox'>
             <div className='hashFlex'>
               {checkedList?.map((data, index) => (
@@ -134,16 +115,12 @@ const KrFilter = () => {
                   style={{
                     backgroundColor: `${data.color}`,
                     border: `2px solid ${data.color}`,
-                  }}
-                  // onClick={() => thisDelete(data)}
-                >
-                  {/* <span>KR{data.krNumber}</span> */}
+                  }}>
                   {data.keyResultId === 0 ? (
                     <span>None</span>
                   ) : (
                     <span>KR{data.krNumber}</span>
                   )}
-                  {/* <GrClose onClick={() => thisDelete(data)} /> */}
                   <GrClose onClick={() => thisDelete(data)} />
                 </div>
               ))}
@@ -154,7 +131,6 @@ const KrFilter = () => {
             {checkInfo.map(data => (
               <li key={data.keyResultId}>
                 <input
-                  // id={data.keyResultId}
                   type='checkbox'
                   onChange={e =>
                     onCheckedElement(e.target.checked, e.target.value)

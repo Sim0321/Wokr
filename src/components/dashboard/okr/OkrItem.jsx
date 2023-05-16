@@ -1,17 +1,14 @@
-import { GetOKR, GetUserInfo } from '../../../apis/apiGET.js';
+import { GetOKR } from '../../../apis/apiGET.js';
 import kRAdd from '../../../assets/KRAdd.png';
 import {
   patchOKRInfo,
   patchKRInfo,
   patchProgressInfo,
-  userId,
-  userInfo,
   krDataAtom,
 } from '../../../store/store.js';
 import {
   OKRBox,
   Objective,
-  OKRSpace,
   KRBox,
   EmptyKR,
   PersentBox,
@@ -19,9 +16,8 @@ import {
 import KrPatchModal from '../../global/globalModal/KrPatchModal.jsx';
 import OkrPatchModal from '../../global/globalModal/OkrPatchModal.jsx';
 import Portal from '../../global/globalModal/Potal.jsx';
-import { useQuery, useQueryClient } from '@tanstack/react-query';
-import jwt_decode from 'jsonwebtoken/decode';
-import React, { useState, useRef, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React, { useState, useRef } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 const OkrItem = () => {
@@ -32,8 +28,6 @@ const OkrItem = () => {
   const setPatchOkrInfo = useSetRecoilState(patchOKRInfo);
   const setPatchkrInfo = useSetRecoilState(patchKRInfo);
   const setPatchProgressInfo = useSetRecoilState(patchProgressInfo);
-
-  // const [openDropdownId, setOpenDropdownId] = useState(null);
 
   /**O 모달 닫는 함수 */
   const onObjectiveCloseModal = () => {
@@ -58,20 +52,20 @@ const OkrItem = () => {
   };
 
   /**KR 모달 닫는 함수 */
-  const onProgressCloseModal = () => {
-    setprogressModalOn(!progressModalOn);
-  };
+  // const onProgressCloseModal = () => {
+  //   setprogressModalOn(!progressModalOn);
+  // };
 
   /** +버튼 누르면 OKR 생성하는 모달 띄움 */
-  const patchProgress = (id, value, state, color) => {
-    setPatchProgressInfo({
-      id: id,
-      value: value,
-      state: state,
-      color: color,
-    });
-    setprogressModalOn(!progressModalOn);
-  };
+  // const patchProgress = (id, value, state, color) => {
+  //   setPatchProgressInfo({
+  //     id: id,
+  //     value: value,
+  //     state: state,
+  //     color: color,
+  //   });
+  //   setprogressModalOn(!progressModalOn);
+  // };
 
   // 모달 외 클릭시 닫기위해 ref생성
   const okrModalRef = useRef(null);
@@ -97,19 +91,16 @@ const OkrItem = () => {
     }
   };
 
-  const progressModalOutSideClick = e => {
-    if (progressModalRef.current === e.target) {
-      setOkrModalOn(!progressModalOn);
-    }
-  };
+  // const progressModalOutSideClick = e => {
+  //   if (progressModalRef.current === e.target) {
+  //     setOkrModalOn(!progressModalOn);
+  //   }
+  // };
 
   const [KRArray, setKRArray] = useState([]);
-  const value = useRecoilValue(krDataAtom);
-  // console.log('value :', value);
-  // console.log('KRArray :', KRArray);
+  // const value = useRecoilValue(krDataAtom);
   const { data: getOKRData } = useQuery(['OKR'], GetOKR, {
     onSuccess: response => {
-      // console.log('response :', response);
       const newArray = response.map(data => {
         const newKRArray = [...data.keyresult];
         newKRArray.sort((a, b) => a.krNumber - b.krNumber);
@@ -121,7 +112,7 @@ const OkrItem = () => {
       setKRArray(newArray);
     },
     onError: response => {},
-    enabled: true,
+    // enabled: true,
   });
 
   const patchKR = (id, KR, state, index) => {
@@ -173,7 +164,7 @@ const OkrItem = () => {
     setkrModalOn(!krModalOn);
   };
 
-  const [showEmotion, setShowEmotion] = useState(false);
+  // const [showEmotion, setShowEmotion] = useState(false);
 
   return (
     <div>

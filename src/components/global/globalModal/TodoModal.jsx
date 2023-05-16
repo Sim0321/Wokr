@@ -12,7 +12,6 @@ import { OnChange } from '../onChange';
 import {
   ModalBackground,
   ModalBox,
-  OKRBox,
   TodoBox,
   ToggleContainer,
 } from './modal.styled';
@@ -111,8 +110,6 @@ const TodoModal = ({
     });
   };
 
-  // console.log(todoInfo);
-
   //endDate 변환 함수 년-월
   const convertEnd = (date, format = defaultFormat.format) => {
     let object = { date, format };
@@ -172,8 +169,6 @@ const TodoModal = ({
       }
       queryClient.invalidateQueries(['ToDo']);
 
-      // queryClient.invalidateQueries(['ALLTODO']);
-      // queryClient.invalidateQueries(['PASTTODO']);
       toast('TODO가 생성되었습니다.');
     },
     onError: response => {
@@ -268,7 +263,6 @@ const TodoModal = ({
             />
           </div>
 
-          {/* <textarea name='' id='' cols='310' rows='310'></textarea> */}
           <div className='date'>
             <img src={calender} alt='' />
             <div className='dateBox'>
@@ -281,7 +275,6 @@ const TodoModal = ({
                   weekDays={weekDays}
                   format='YYYY-MM-DD'
                   placeholder='시작일'
-                  // value={defaultFormat.date}
                   value={
                     fromCalendar !== undefined
                       ? dateInfo.start
@@ -323,7 +316,6 @@ const TodoModal = ({
                   format='YYYY-MM-DD HH:mm'
                   plugins={[<TimePicker position='bottom' hideSeconds />]}
                   placeholder='시작일'
-                  // value={timeFormat.date}
                   value={
                     fromCalendar !== undefined
                       ? dateInfo.start
@@ -366,11 +358,6 @@ const TodoModal = ({
                   format='YYYY-MM-DD'
                   placeholder='종료일'
                   value={defaultFormat.date}
-                  // value={
-                  //   fromCalendar !== undefined
-                  //     ? dateInfo.end
-                  //     : defaultFormat.date
-                  // }
                   onChange={convertEnd}
                   animations={[
                     opacity(),
@@ -409,9 +396,6 @@ const TodoModal = ({
                   plugins={[<TimePicker position='bottom' hideSeconds />]}
                   placeholder='종료일'
                   value={timeFormat.date}
-                  // value={
-                  //   fromCalendar !== undefined ? dateInfo.end : timeFormat.date
-                  // }
                   onChange={convertEndWithTime}
                   animations={[
                     opacity(),
@@ -454,7 +438,6 @@ const TodoModal = ({
             저장
           </button>
         </div>
-        {/* <Toast /> */}
       </ModalBox>
     </div>
   );

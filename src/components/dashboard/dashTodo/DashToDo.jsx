@@ -37,9 +37,7 @@ export default function DashTodo({ todayFormat }) {
 
   const { data: myTodo } = useQuery(['ToDo'], GetMyTodo, {
     onSuccess: response => {
-      // console.log(response);
       setTodoList(response);
-      // queryClient.invalidateQueries(['TODO']);
     },
   });
 

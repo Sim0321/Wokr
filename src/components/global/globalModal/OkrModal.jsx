@@ -3,9 +3,7 @@ import calender from '../../../assets/calender.png';
 import close from '../../../assets/close.png';
 import info from '../../../assets/info.png';
 import object from '../../../assets/object.png';
-import Toast from '../Toast';
 import ColorDropDown from '../globaldropdown/ColorDropDown';
-import { OnChange } from '../onChange';
 import { ModalBackground, ModalBox, OKRBox } from './modal.styled';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
@@ -227,7 +225,6 @@ const OkrModal = ({ onCloseModal, modalRef, modalOutSideClick }) => {
                   weekDays={weekDays}
                   format={format}
                   placeholder='종료일'
-                  // readOnly
                   value={endDate.date || ''}
                   onChange={convertEnd}
                   animations={[

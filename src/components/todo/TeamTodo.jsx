@@ -1,11 +1,6 @@
 import { GetUser } from '../../apis/apiGET';
 import badgeB from '../../assets/badgeB.png';
-import {
-  dateArray,
-  teamArray,
-  teamMemberAtom,
-  todoDateInfo,
-} from '../../store/store';
+import { dateArray, teamMemberAtom, todoDateInfo } from '../../store/store';
 import { StTeam } from '../../styles/tododetail.styled';
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
@@ -13,16 +8,12 @@ import { useRecoilState, useSetRecoilState } from 'recoil';
 
 const TeamTodo = () => {
   const setMember = useSetRecoilState(teamMemberAtom);
-  // console.log('member --->', member);
-  // const setTeamMemberAtom = useSetRecoilState(teamMemberAtom);
 
   const [info, setInfo] = useRecoilState(todoDateInfo);
   const [team, setTeam] = useRecoilState(dateArray);
-  // console.log('team :', team);
 
   const { data: getMember } = useQuery(['MEMBER'], GetUser, {
     onSuccess: response => {
-      // console.log(response);
       setMember(response);
     },
     onError: response => {},

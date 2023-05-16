@@ -1,9 +1,9 @@
 import blueF from '../../../assets/blue.png';
 import four from '../../../assets/four.png';
 import grayF from '../../../assets/gray.png';
-import good from '../../../assets/newemoji1.png';
-import normal from '../../../assets/newemoji2.png';
-import bad from '../../../assets/newemoji3.png';
+// import good from '../../../assets/newemoji1.png';
+// import normal from '../../../assets/newemoji2.png';
+// import bad from '../../../assets/newemoji3.png';
 import one from '../../../assets/one.png';
 import redF from '../../../assets/red.png';
 import three from '../../../assets/three.png';
@@ -17,13 +17,6 @@ export const useDropDown = (ref, initialState) => {
   // 밖에 누르면 닫히기
   useEffect(() => {
     const clickOutside = e => {
-      // console.log(ref.current);
-      // console.log(e.target);
-      // console.log(ref.current.contains(e.target));
-      // console.log(ref.current);
-      // if (ref.current && !ref.current.contains(e.target)) {
-      //   setIsOpen(!isOpen);
-      // }
       if (ref.current && !ref.current.contains(e.target)) {
         setIsOpen(!isOpen);
       }
@@ -41,25 +34,6 @@ export const useDropDown = (ref, initialState) => {
   }, [isOpen, ref]);
   return [isOpen, setIsOpen];
 };
-
-// export const team = {
-//   list: [
-//     'P01',
-//     'P02',
-//     'P03',
-//     'P04',
-//     'P05',
-//     'P06',
-//     'P07',
-//     'P08',
-//     'P09',
-//     'P010',
-//     'P011',
-//     'P012',
-//     'P013',
-//   ],
-//   defaultValue: '부서를 선택해주세요',
-// };
 
 export const teamPosi = {
   list: ['팀장', '팀원'],
@@ -84,10 +58,10 @@ export const priority = {
   ],
 };
 
-export const emotion = {
-  list: [
-    { emotion: good, name: 1 },
-    { emotion: normal, name: 0 },
-    { emotion: bad, name: 2 },
-  ],
-};
+// export const emotion = {
+//   list: [
+//     { emotion: good, name: 1 },
+//     { emotion: normal, name: 0 },
+//     { emotion: bad, name: 2 },
+//   ],
+// };

@@ -7,7 +7,6 @@ export const DropdownContainer = styled.div`
   height: 6.7rem;
   box-sizing: border-box;
   position: relative;
-  /* border: 1.5px solid #d9d9d9; */
 
   input {
     width: 100%;
@@ -48,7 +47,6 @@ export const DropdownContainer = styled.div`
     }
     ::-webkit-scrollbar-thumb {
       box-shadow: inset 0 0 6px rgba(0, 0, 0, 1);
-      /* background-color: #e8e8e8; */
       border-radius: 0 12px 12px 0;
     }
     ::-webkit-scrollbar-track {
@@ -66,14 +64,6 @@ export const DropdownContainer = styled.div`
       text-align: start;
       padding: 0 20px;
       border-bottom: 1px solid #ccc;
-      :nth-last-child(1) {
-        // 금욜날
-        /* border-radius: 0px 0px 12px 12px; */
-      }
-      :nth-child(1) {
-        //금욜날
-        /* border-radius: 12px 12px 0px 0px; */
-      }
       :hover {
         background-color: #e8e8e8;
       }
@@ -152,8 +142,6 @@ export const ColorSelect = styled.div`
     border-radius: 12px;
     padding: 1.5rem 1rem;
     margin: 10px auto;
-    /* filter: var(--input-focus); */
-    /* border: var(--input-hover); */
     box-sizing: border-box;
     position: relative;
     box-shadow: 0px 2px 5px rgba(150, 150, 150, 0.65);
@@ -357,7 +345,6 @@ export const OkrItem = styled.div`
     height: 3.6rem;
     border: 1px solid #f5f5f5;
     border-radius: 7px;
-    /* text-align: left; */
     display: flex;
     align-items: center;
     justify-content: start;
@@ -382,11 +369,9 @@ export const EmotionSelect = styled.div`
   position: relative;
   margin-left: 19px;
   cursor: pointer;
-  /* background-color: pink; */
   .emotion {
     width: 100%;
     height: 100%;
-    /* background-color: skyblue; */
   }
   ul {
     width: 15.7rem;
@@ -400,8 +385,6 @@ export const EmotionSelect = styled.div`
     border-radius: 12px;
     transition: all 0.3s;
     margin: 5px;
-    /* left: 50%; */
-    /* transform: translateX(-50%); */
     cursor: default;
     .tooltip {
       font-size: 1.7rem;
@@ -417,8 +400,6 @@ export const EmotionSelect = styled.div`
       img {
         cursor: pointer;
       }
-
-      /* text-align: center; */
     }
     li {
       width: 10.3rem;

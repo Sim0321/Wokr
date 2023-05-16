@@ -14,19 +14,11 @@ import ReactGA from 'react-ga4';
 import { toast } from 'react-toastify';
 import { useSetRecoilState } from 'recoil';
 
-const TodoItem = ({ todayFormat }) => {
-  // console.log(todayFormat);
+const TodoItem = () => {
   const queryClient = useQueryClient();
 
-  // const [count, setCount] = useRecoilState(myChange);
-  // console.log(count);
-
-  // const [info, setInfo] = useRecoilState(myTodo);
-
   const { data: myTodo } = useQuery(['ToDo'], GetMyTodo, {
-    onSuccess: response => {
-      // console.log(response);
-    },
+    onSuccess: response => {},
   });
 
   // 체크 수정
@@ -95,7 +87,6 @@ const TodoItem = ({ todayFormat }) => {
     endDateTime,
     priority
   ) => {
-    // console.log(todo);
     setPatchTodoInfo({
       id,
       toDo,
@@ -108,10 +99,6 @@ const TodoItem = ({ todayFormat }) => {
     });
     setTodoModalOn(!todoModalOn);
   };
-
-  // if (isLoading) {
-  //   return <Loading />;
-  // }
 
   return (
     <>

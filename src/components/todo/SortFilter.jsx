@@ -3,7 +3,7 @@ import check from '../../assets/sortCheck.png';
 import { todoDateInfo } from '../../store/store';
 import { StSortFilter } from '../../styles/tododetail.styled';
 import { useDropDown } from '../global/globaldropdown/dropdown';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useRecoilState } from 'recoil';
 
 const SortFilter = () => {
@@ -20,15 +20,12 @@ const SortFilter = () => {
   const [showCreateDate, setShowCreateDate] = useState(false);
 
   const [info, setInfo] = useRecoilState(todoDateInfo);
-  // console.log(info);
 
   const clickSortTitle = e => {
-    // console.log(e.target.id);
     setInfo({ ...info, orderby: e.currentTarget.id });
   };
 
   const clickRole = e => {
-    // console.log(e.target.id);
     setInfo({ ...info, orderbyrole: e.target.id });
   };
 
@@ -164,7 +161,6 @@ const SortFilter = () => {
               onMouseOver={() => setShowEndDate(true)}
               onMouseOut={() => setShowEndDate(false)}>
               <p className='sortTitle' id='endDate' onClick={clickSortTitle}>
-                {/* <img src={check} alt='check' /> */}
                 마감기한
               </p>
               {showEndDate && (

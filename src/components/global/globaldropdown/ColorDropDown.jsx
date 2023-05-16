@@ -1,6 +1,4 @@
 import { GetOKR } from '../../../apis/apiGET';
-import Arrow from '../../../assets/dropdownArrow.png';
-import fillArrow from '../../../assets/filldropArrow.png';
 import { ColorSelect, DropFillIcon, DropIcon } from './dropDown.styled';
 import { useDropDown, color } from './dropdown';
 import { useQuery } from '@tanstack/react-query';
@@ -12,13 +10,11 @@ const ColorDropDown = ({ setObjInfo, objInfo }) => {
   const [isOpen, setIsOpen] = useDropDown(dropDownRef, false);
   const [finalValue, setFinalValue] = useState('색상');
   const [filterColor, setFilterColor] = useState();
-  // console.log('finalValue :', finalValue);
 
   const [onFocus, setOnFocus] = useState(false);
 
   const { data: getOKRData } = useQuery(['OKR'], GetOKR, {
     onSuccess: response => {
-      // console.log('abaaa', response);
       const filterColorData = response.map(data => {
         return data.color;
       });
@@ -32,7 +28,6 @@ const ColorDropDown = ({ setObjInfo, objInfo }) => {
           };
         });
       setFilterColor(result);
-      // console.log('res', result);
     },
   });
 

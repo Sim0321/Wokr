@@ -59,7 +59,6 @@ export default function Mainpage() {
 
   const { data: getKr } = useQuery(['KR'], GetKR, {
     onSuccess: response => {
-      // console.log(response);
       setKrData(response);
       // todo페이지에서 필요한 kr id
       const filterArray = response.map(el => el.keyResultId);
@@ -68,31 +67,24 @@ export default function Mainpage() {
     },
   });
 
-  // 오늘 날짜 포맷 2023-01-01
-  // const setTodayFormat = useSetRecoilState(todayFormat);
-
   const now = new Date();
   let today = '';
   if (now.getMonth() + 1 < 10 && now.getDate() < 10) {
     today = `${now.getFullYear()}-0${now.getMonth() + 1}-0${now.getDate()}`;
     localStorage.setItem('targetDate', today);
     localStorage.setItem('today', today);
-    // setTodayFormat(today);
   } else if (now.getDate() < 10) {
     today = `${now.getFullYear()}-${now.getMonth() + 1}-0${now.getDate()}`;
     localStorage.setItem('targetDate', today);
     localStorage.setItem('today', today);
-    // setTodayFormat(today);
   } else if (now.getMonth() + 1 < 10) {
     today = `${now.getFullYear()}-0${now.getMonth() + 1}-${now.getDate()}`;
     localStorage.setItem('targetDate', today);
     localStorage.setItem('today', today);
-    // setTodayFormat(today);
   } else {
     today = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
     localStorage.setItem('targetDate', today);
     localStorage.setItem('today', today);
-    // setTodayFormat(today);
   }
 
   if (isLoading) {

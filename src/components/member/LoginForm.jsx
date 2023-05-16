@@ -3,7 +3,6 @@ import CloseEye from '../../assets/closedEye.png';
 import Eye from '../../assets/eye.png';
 import {
   MainHeader,
-  ArticleHeader,
   InputBox,
   EmailInput,
   PwEye,
@@ -28,13 +27,6 @@ const LoginForm = () => {
   };
 
   const [userInfo, setUserInfo] = useState({ email: '', password: '' });
-
-  // useEffect(() => {
-  //   const savedFormData = JSON.parse(localStorage.getItem('userInfo'));
-  //   if (savedFormData) {
-  //     setUserInfo(savedFormData);
-  //   }
-  // }, []);
 
   const [errors, setErrors] = useState({});
 
@@ -71,7 +63,6 @@ const LoginForm = () => {
 
   const { mutate: signInMutate } = useMutation(SignIn, {
     onSuccess: response => {
-      // console.log(response);
       if (process.env.NODE_ENV !== 'development') {
         ReactGA.event({
           category: '버튼',
