@@ -18,18 +18,17 @@
 
 ### 🔗 [자세한 프로젝트 정보 🔥](https://github.com/Sim0321/Wokr/wiki)
 
----
+## d
 
 ## 기술 정보
 
-![Recoil](https://img.shields.io/badge/react-61DAFB?style=for-the-badge)
+![Recoil](https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 ![Recoil](https://img.shields.io/badge/CreateReactApp-f26b00?style=for-the-badge)
 ![Recoil](https://img.shields.io/badge/recoil-f26b00?style=for-the-badge)
 ![Recoil](https://img.shields.io/badge/recoil-f26b00?style=for-the-badge)
 
 <p>
   <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">
-  
   <img src="https://img.shields.io/badge/Create React App-09D3AC?style=for-the-badge&logo=Create React App&logoColor=black">
  <img src="https://img.shields.io/badge/React Query-FF4154?style=for-the-badge&logo=React Query&logoColor=white">
   <img src="https://img.shields.io/badge/React Router-CA4245?style=for-the-badge&logo=React Router&logoColor=white">
