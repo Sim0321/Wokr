@@ -47,3 +47,7 @@
 ## 자세한 정보
 
 🔗 [WIKI로 이동](https://github.com/Sim0321/Wokr/wiki)
+
+## LightHouse 점수
+![image](https://github.com/Sim0321/Wokr/assets/105590167/716fb393-f5be-46b8-8b71-d891f4ba7b2d)
+
