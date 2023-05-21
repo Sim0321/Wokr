@@ -115,8 +115,6 @@ const KrPatchModal = ({ onCloseModal, modalRef, modalOutSideClick }) => {
     } else if (krInfo.state === 'post') {
       const id = krInfo.id;
       const value = title;
-      console.log(title);
-      console.log(value);
       postKR({ value, id });
     }
   };

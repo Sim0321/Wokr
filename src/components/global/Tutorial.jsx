@@ -9,7 +9,6 @@ import styled from 'styled-components';
 const Tutorial = () => {
   const [haveCh, setHaveCh] = useState(false);
 
-  console.log(haveCh);
   const queryClient = useQueryClient();
 
   const { mutate: patchTutorial } = useMutation(PatchTutorial, {

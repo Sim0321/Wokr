@@ -26,7 +26,6 @@ export async function CreateTodo({ Oid, Kid, Info }) {
 }
 
 export async function PostExpirationTodo({ info }) {
-  // console.log(Info)
   const { data } = await api.post(`api/todo/expiration`, info);
   return data;
 }

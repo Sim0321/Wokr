@@ -105,7 +105,6 @@ const RegisterForm = () => {
     },
 
     onError: response => {
-      console.log(response);
       if (process.env.NODE_ENV !== 'development') {
         ReactGA.event({
           category: '버튼',

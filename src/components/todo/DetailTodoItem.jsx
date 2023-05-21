@@ -354,7 +354,6 @@ const DetailTodoItem = () => {
   });
 
   const Check = ({ data }) => {
-    // console.log(data);
     const onClickCheck = () => {
       const id = data.toDoId;
       patchCheckmutate({ id });

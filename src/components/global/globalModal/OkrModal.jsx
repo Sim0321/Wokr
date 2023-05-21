@@ -79,8 +79,6 @@ const OkrModal = ({ onCloseModal, modalRef, modalOutSideClick }) => {
   const convertStart = (date, format = startDate.format) => {
     let object = { date, format };
     setStartDate(new DateObject(object).format());
-    console.log(startDate);
-    console.log(startDate.date);
     setObjInfo({ ...objInfo, startdate: new DateObject(object).format() });
   };
 
@@ -110,7 +108,6 @@ const OkrModal = ({ onCloseModal, modalRef, modalOutSideClick }) => {
     } else if (objInfo.color === '') {
       toast('색상을 선택해 주세요.');
     } else {
-      // console.log('성공');
       createObjectiveMutate(objInfo);
     }
   };

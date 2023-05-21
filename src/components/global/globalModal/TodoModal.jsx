@@ -32,7 +32,6 @@ const TodoModal = ({
   fromCalendar,
   dateInfo,
 }) => {
-  // console.log(dateInfo);
   useEffect(() => {
     const handleBeforeUnload = e => {
       e.preventDefault();
@@ -160,7 +159,6 @@ const TodoModal = ({
 
   const { mutate: createTodo } = useMutation(CreateTodo, {
     onSuccess: response => {
-      console.log('생성됨');
       if (process.env.NODE_ENV !== 'development') {
         ReactGA.event({
           category: '버튼',

@@ -51,7 +51,15 @@ const ColorDropDown = ({ setObjInfo, objInfo }) => {
       setObjInfo({ ...objInfo, color: value }); // 색상 hex코드
     };
 
-    return <li onClick={ValueClick} style={{ backgroundColor: value }} />;
+    return (
+      <li
+        onClick={ValueClick}
+        style={{
+          backgroundColor: value,
+          marginBottom: value === '#00E58C' ? '0rem' : '1rem',
+        }}
+      />
+    );
   };
 
   return (

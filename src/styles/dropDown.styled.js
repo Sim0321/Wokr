@@ -126,6 +126,7 @@ export const ColorSelect = styled.div`
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       .value {
         width: 53px;
       }
@@ -147,6 +148,7 @@ export const ColorSelect = styled.div`
     box-shadow: 0px 2px 5px rgba(150, 150, 150, 0.65);
     z-index: 9;
     background-color: #ffffff;
+    /* background-color: pink; */
     li {
       width: 3.3rem;
       height: 3.1rem;
@@ -155,7 +157,8 @@ export const ColorSelect = styled.div`
       text-align: start;
       margin-bottom: 1rem;
       border-radius: 7px;
-      transition: all 0.3s;
+      transition-property: transform;
+      transition-duration: 0.3s;
       :nth-last-child(1) {
         margin-bottom: 0rem;
       }

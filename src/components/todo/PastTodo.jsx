@@ -79,7 +79,6 @@ const PastTodo = () => {
   const Check = ({ el }) => {
     const onClickCheck = () => {
       const id = el.toDoId;
-      console.log(id);
       patchCheckmutate({ id });
     };
 
@@ -104,7 +103,6 @@ const PastTodo = () => {
     endDateTime,
     priority
   ) => {
-    console.log(todo);
     setPatchTodoInfo({
       id,
       toDo: todo,

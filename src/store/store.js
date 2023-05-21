@@ -152,8 +152,6 @@ export const filterTeamMemberSelector = selector({
   get: ({ get }) => {
     const todoMember = get(teamMemberAtom);
     const filterTodoMember = todoMember?.map(el => el.userId);
-    // console.log('todoMember :', todoMember);
-    // return filterTodoMember;
     return todoMember;
   },
 });
