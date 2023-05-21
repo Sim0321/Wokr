@@ -19,13 +19,13 @@ import {
   ToggleEndState,
   ToggleStartState,
 } from '../../../store/store';
-import PatchPriority from './../globaldropdown/PatchPriority';
 import {
   ModalBackground,
   ModalBox,
   TodoBox,
   ToggleContainer,
-} from './modal.styled';
+} from '../../../styles/modal.styled';
+import PatchPriority from './../globaldropdown/PatchPriority';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
 import opacity from 'react-element-popper/animations/opacity';

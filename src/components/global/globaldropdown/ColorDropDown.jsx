@@ -1,5 +1,9 @@
 import { GetOKR } from '../../../apis/apiGET';
-import { ColorSelect, DropFillIcon, DropIcon } from './dropDown.styled';
+import {
+  ColorSelect,
+  DropFillIcon,
+  DropIcon,
+} from '../../../styles/dropDown.styled';
 import { useDropDown, color } from './dropdown';
 import { useQuery } from '@tanstack/react-query';
 import { useState, useRef } from 'react';

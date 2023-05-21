@@ -4,7 +4,7 @@ import {
   OkrDropContainer,
   OkrItem,
   TodoDropIcon,
-} from './dropDown.styled';
+} from '../../../styles/dropDown.styled';
 import { useDropDown } from './dropdown';
 import { useQuery } from '@tanstack/react-query';
 import { useState, useRef } from 'react';

@@ -6,15 +6,15 @@ import memo from '../../../assets/memo.png';
 import todoOkr from '../../../assets/todoOKR.png';
 import todo from '../../../assets/todoTODO.png';
 import { ToggleEndState, ToggleStartState } from '../../../store/store';
-import OkrDropDown from '../globaldropdown/OkrDropDown';
-import PriorityDropDown from '../globaldropdown/PriorityDropDown';
-import { OnChange } from '../onChange';
 import {
   ModalBackground,
   ModalBox,
   TodoBox,
   ToggleContainer,
-} from './modal.styled';
+} from '../../../styles/modal.styled';
+import OkrDropDown from '../globaldropdown/OkrDropDown';
+import PriorityDropDown from '../globaldropdown/PriorityDropDown';
+import { OnChange } from '../onChange';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
 import opacity from 'react-element-popper/animations/opacity';

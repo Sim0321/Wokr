@@ -1,5 +1,5 @@
-import Arrow from '../../../assets/dropdownArrow.png';
-import fillArrow from '../../../assets/filldropArrow.png';
+import Arrow from '../assets/dropdownArrow.png';
+import fillArrow from '../assets/filldropArrow.png';
 import styled from 'styled-components';
 
 export const DropdownContainer = styled.div`

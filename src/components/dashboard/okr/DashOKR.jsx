@@ -7,9 +7,9 @@ import {
   HeaderBox,
   OkrContainer,
 } from '../../../styles/OKR.styled.js';
+import { NotHaveEl } from '../../../styles/modal.styled';
 import OkrModal from '../../global/globalModal/OkrModal.jsx';
 import Potal from '../../global/globalModal/Potal.jsx';
-import { NotHaveEl } from '../../global/globalModal/modal.styled.js';
 import OkrItem from './OkrItem';
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';

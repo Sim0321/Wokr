@@ -5,9 +5,13 @@ import close from '../../../assets/close.png';
 import object from '../../../assets/object.png';
 import trash from '../../../assets/trash.png';
 import { patchOKRInfo } from '../../../store/store';
+import {
+  ModalBackground,
+  ModalBox,
+  OKRBox,
+} from '../../../styles/modal.styled';
 import ColorDropDown from '../globaldropdown/ColorDropDown';
 import { OnChange } from '../onChange';
-import { ModalBackground, ModalBox, OKRBox } from './modal.styled';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
 import opacity from 'react-element-popper/animations/opacity';

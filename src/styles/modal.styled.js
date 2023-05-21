@@ -1,7 +1,7 @@
-import end from '../../../assets/end.png';
-import endHover from '../../../assets/endHover.png';
-import start from '../../../assets/start.png';
-import startHover from '../../../assets/startHover.png';
+import end from '../assets/end.png';
+import endHover from '../assets/endHover.png';
+import start from '../assets/start.png';
+import startHover from '../assets/startHover.png';
 import styled from 'styled-components';
 
 export const ModalBackground = styled.div`

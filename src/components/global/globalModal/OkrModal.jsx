@@ -3,8 +3,12 @@ import calender from '../../../assets/calender.png';
 import close from '../../../assets/close.png';
 import info from '../../../assets/info.png';
 import object from '../../../assets/object.png';
+import {
+  ModalBackground,
+  ModalBox,
+  OKRBox,
+} from '../../../styles/modal.styled';
 import ColorDropDown from '../globaldropdown/ColorDropDown';
-import { ModalBackground, ModalBox, OKRBox } from './modal.styled';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
 import opacity from 'react-element-popper/animations/opacity';

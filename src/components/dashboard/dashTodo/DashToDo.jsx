@@ -1,6 +1,8 @@
 import { GetMyTodo } from '../../../apis/apiGET';
 import plus from '../../../assets/plus.png';
+import TodoModal from '../../../components/global/globalModal/TodoModal';
 import { todoListState } from '../../../store/store';
+import { NotHaveEl } from '../../../styles/modal.styled';
 import {
   Container,
   Header,
@@ -9,8 +11,6 @@ import {
   StTodoItem,
 } from '../../../styles/todo.styled';
 import Potal from '../../global/globalModal/Potal';
-import TodoModal from '../../global/globalModal/TodoModal';
-import { NotHaveEl } from '../../global/globalModal/modal.styled';
 import TodoItem from './TodoItem';
 import { useQuery } from '@tanstack/react-query';
 import React, { useState, useRef } from 'react';

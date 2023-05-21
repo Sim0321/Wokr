@@ -6,7 +6,7 @@ import info from '../../../assets/info.png';
 import kr from '../../../assets/kr.png';
 import trash from '../../../assets/trash.png';
 import { patchKRInfo } from '../../../store/store';
-import { KRBox, ModalBackground, ModalBox } from './modal.styled';
+import { KRBox, ModalBackground, ModalBox } from '../../../styles/modal.styled';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
 import ReactGA from 'react-ga4';

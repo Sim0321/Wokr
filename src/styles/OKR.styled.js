@@ -85,7 +85,7 @@ export const Objective = styled.div`
       width: 100%;
       /* background-color: skyblue; */
       .name {
-        width: 98%;
+        width: 100%;
         height: 30px;
         font-weight: 500;
         font-size: 1.8rem;
@@ -113,9 +113,9 @@ export const Objective = styled.div`
     /* margin-right: 5rem; */
     .percent {
       width: 35px;
-      height: 25px;
+      /* height: 25px; */
       font-weight: 300;
-      font-size: 18px;
+      font-size: 15px;
       color: ${({ color }) => color};
       cursor: default;
       margin-left: 14px;
@@ -171,9 +171,9 @@ export const KRBox = styled.div`
 
     .percent {
       width: 35px;
-      height: 25px;
+      /* height: 25px; */
       font-weight: 300;
-      font-size: 18px;
+      font-size: 15px;
       color: ${({ color }) => color};
       cursor: default;
       margin-left: 14px;

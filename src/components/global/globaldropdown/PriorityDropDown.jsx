@@ -1,4 +1,4 @@
-import { PrioritySelect, TodoDropIcon } from './dropDown.styled';
+import { PrioritySelect, TodoDropIcon } from '../../../styles/dropDown.styled';
 import { useDropDown, priority } from './dropdown';
 import { useState, useRef } from 'react';
 
