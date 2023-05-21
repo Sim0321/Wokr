@@ -14,6 +14,8 @@
 >   - Wokr + OKR의 줄임말(OKR과 협업 툴이 결합된 서비스)
 >   - Objective + Key Result의 약자로 측정 가능한 팀 목표를 설정하고 추적하는 목표 설정 방법
 
+- [🔗 가이드 링크](https://wokrguide.notion.site/wokrguide/e03a160a8b57469c9f9e2a7e99158187)
+
 ### 프로젝트 기간
 
 - 📍 2023.03.08 ~ 진행 중(리펙토링)
