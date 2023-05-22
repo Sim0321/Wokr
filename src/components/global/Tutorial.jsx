@@ -1,13 +1,18 @@
 import { PatchTutorial } from '../../apis/apiPATCH';
-import tutorialImg from '../../assets/tutorial.png';
+import tutorialImg from '../../assets/tutorial2.png';
 import close from '../../assets/whiteClose.png';
+import { showTutorial } from '../../store/store';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import React from 'react';
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 
 const Tutorial = () => {
   const [haveCh, setHaveCh] = useState(false);
+
+  const [showTutorialState, setShowTutorialState] =
+    useRecoilState(showTutorial);
 
   const queryClient = useQueryClient();
 
@@ -16,18 +21,36 @@ const Tutorial = () => {
       queryClient.invalidateQueries(['userInfo']);
     },
   });
+
+  const onClickTutorial = () => {
+    if (showTutorial && !haveCh) {
+      setShowTutorialState(!showTutorialState);
+    } else if (showTutorial && haveCh) {
+      setShowTutorialState(!showTutorialState);
+      patchTutorial();
+    }
+  };
   return (
     <StTutorial>
-      <div className='bg' />
+      <img className='bg' src={tutorialImg} alt='tutorial' />
       <div className='checkBox'>
         {haveCh ? (
-          <input type='checkbox' onChange={e => setHaveCh(e.target.checked)} />
+          <input
+            type='checkbox'
+            id='checkbox'
+            onChange={e => setHaveCh(e.target.checked)}
+          />
         ) : (
-          <input type='checkbox' onChange={e => setHaveCh(e.target.checked)} />
+          <input
+            type='checkbox'
+            id='checkbox'
+            onChange={e => setHaveCh(e.target.checked)}
+          />
         )}
 
-        <span>다시보지 않기</span>
-        <div className='close' onClick={() => patchTutorial()} />
+        <label htmlFor='checkbox'>다시보지 않기</label>
+        {/* <div className='close' onClick={() => patchTutorial()} /> */}
+        <div className='close' onClick={onClickTutorial} />
       </div>
     </StTutorial>
   );
@@ -47,7 +70,7 @@ const StTutorial = styled.div`
   .bg {
     width: 100%;
     height: 100%;
-    background: url(${tutorialImg}) no-repeat left top / cover;
+    /* background: url(${tutorialImg}) no-repeat left top / cover; */
   }
   .checkBox {
     width: 226px;
@@ -65,11 +88,11 @@ const StTutorial = styled.div`
       margin: 0;
       cursor: pointer;
     }
-    span {
+    label {
       font-size: 22px;
       color: #fff;
       margin: 0 29px 0 11px;
-      cursor: default;
+      cursor: pointer;
     }
     .close {
       width: 20px;

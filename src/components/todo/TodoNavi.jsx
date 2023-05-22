@@ -1,6 +1,11 @@
 import { PostWeek } from '../../apis/apiPOST';
 import plus from '../../assets/plus.png';
-import { dateArray, todayFormat, todoDateInfo } from '../../store/store';
+import {
+  dateArray,
+  todayFormat,
+  todoDateInfo,
+  userId,
+} from '../../store/store';
 import {
   DateNavi,
   NaviPlus,

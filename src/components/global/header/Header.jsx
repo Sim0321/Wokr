@@ -22,6 +22,7 @@ export default function Header() {
 
   const onLogout = () => {
     localStorage.clear();
+    // window.location.replace('/signin');
     navigate('/signin');
   };
 

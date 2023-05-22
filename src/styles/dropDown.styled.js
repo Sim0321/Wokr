@@ -77,22 +77,31 @@ export const DropIcon = styled.div`
   background: url(${Arrow}) no-repeat center / contain;
 `;
 
+export const DropFillIcon = styled.div`
+  width: 14px;
+  height: 14px;
+  background: url(${fillArrow}) no-repeat center / contain;
+`;
+
 export const TodoDropIcon = styled.div`
   width: 14px;
   height: 14px;
   background: url(${Arrow}) no-repeat center / contain;
   position: absolute;
   right: 15px;
-  top: 11px;
+  top: 15px;
 `;
 
 export const TodoDropFillIcon = styled.div`
   width: 14px;
   height: 14px;
+  position: absolute;
+  right: 15px;
+  top: 15px;
   background: url(${fillArrow}) no-repeat center / contain;
 `;
 
-export const DropFillIcon = styled.div`
+export const FillIcon = styled.div`
   width: 14px;
   height: 14px;
   background: url(${fillArrow}) no-repeat center / contain;
@@ -192,11 +201,7 @@ export const PrioritySelect = styled.div`
     }
     font-weight: 500;
   }
-  img {
-    width: 1.4rem;
-    height: 1.4rem;
-    right: 0;
-  }
+
   ul {
     width: 9.7rem;
     text-align: center;
@@ -227,7 +232,7 @@ export const PrioritySelect = styled.div`
         width: 3.3rem;
         height: 100%;
         margin: 0;
-        background-color: #ffffff;
+        background-color: #fafafa;
         border: 1px solid #f8f8f8;
         border-radius: 8px;
       }
@@ -248,8 +253,6 @@ export const OkrDropBox = styled.div`
     position: absolute;
     top: 50%;
     right: 0;
-  }
-  .todoDropicon {
   }
 `;
 

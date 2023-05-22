@@ -6,10 +6,16 @@ export const userDetail = atom({
   default: undefined,
 });
 
+export const showTutorial = atom({
+  key: 'showTutorial',
+  default: false,
+});
+
 // accesstoken에서 userId값 추출
 export const userId = atom({
   key: 'userId',
-  default: localStorage.getItem('userId'),
+  // default: localStorage.getItem('userId'),
+  default: null,
 });
 
 export const todayFormat = atom({

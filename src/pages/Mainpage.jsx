@@ -3,7 +3,9 @@ import DashBoardCalendar from '../components/dashboard/calendar/Calendar';
 import DashTodo from '../components/dashboard/dashTodo/DashToDo';
 import DashOKR from '../components/dashboard/okr/DashOKR';
 import Loading from '../components/global/Loading';
-import { krDataAtom, userDetail, userId } from '../store/store';
+import Tutorial from '../components/global/Tutorial';
+import Portal from '../components/global/globalModal/Potal';
+import { krDataAtom, showTutorial, userDetail, userId } from '../store/store';
 import {
   OkrContainer,
   StWrap,
@@ -21,8 +23,15 @@ export default function Mainpage() {
   //  accesstoken 디코딩
   const [userInfo, setUserInfo] = useRecoilState(userDetail);
 
+  // 튜토리얼
+  const [showTutorialState, setShowTutorialState] =
+    useRecoilState(showTutorial);
+  // console.log(showTutorialState);
+
   // 유저 id 상태관리
   const setUid = useSetRecoilState(userId);
+  // const [test, setTest] = useRecoilState(userId);
+  // console.log(test);
 
   const [decodeId, setDecodeId] = useState(0);
 
@@ -47,6 +56,7 @@ export default function Mainpage() {
     {
       enabled: !!decodeId,
       onSuccess: data => {
+        setShowTutorialState(data.firstLogin);
         setUserInfo(data);
         localStorage.setItem('userId', data.userId);
         setUid(data.userId);
@@ -93,19 +103,19 @@ export default function Mainpage() {
   return (
     <StWrapBackground>
       <StWrap>
-        {/* {userInfo?.firstLogin === true ? (
+        {showTutorialState ? (
           <Portal>
             <Tutorial />
           </Portal>
-        ) : ( */}
-        <main>
-          <OkrContainer>
-            <DashOKR />
-            <DashTodo todayFormat={today} />
-          </OkrContainer>
-          <DashBoardCalendar />
-        </main>
-        {/* )} */}
+        ) : (
+          <main>
+            <OkrContainer>
+              <DashOKR />
+              <DashTodo todayFormat={today} />
+            </OkrContainer>
+            <DashBoardCalendar />
+          </main>
+        )}
       </StWrap>
     </StWrapBackground>
   );

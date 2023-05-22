@@ -3,6 +3,7 @@ import {
   OkrDropBox,
   OkrDropContainer,
   OkrItem,
+  TodoDropFillIcon,
   TodoDropIcon,
 } from '../../../styles/dropDown.styled';
 import { useDropDown } from './dropdown';
@@ -16,6 +17,8 @@ const OkrDropDown = ({ setKid, setOid, title }) => {
   const [valueState, setValueState] = useState(false);
 
   const [finalValue, setFinalValue] = useState('');
+
+  const [onFocus, setOnFocus] = useState(false);
 
   const { data: getOkrData } = useQuery(['getOkr'], GetOKR, {
     onSuccess: response => {},
@@ -44,15 +47,22 @@ const OkrDropDown = ({ setKid, setOid, title }) => {
         value={finalValue}
         readOnly={true}
         onClick={() => setIsOpen(!isOpen)}
+        // onClick={onClickOKR}
         // placeholder='none 핵심결과 선택하지 않고 To Do 작성'
         placeholder={
           title
             ? '선택하지 않으면 기존과 동일합니다.'
             : 'none Key Result 선택하지 않고 To-Do 추가하기'
         }
+        onMouseLeave={() => {
+          setOnFocus(!onFocus);
+        }}
+        onMouseEnter={() => {
+          setOnFocus(!onFocus);
+        }}
       />
-
-      <TodoDropIcon className='todoDropicon' />
+      {onFocus ? <TodoDropFillIcon /> : <TodoDropIcon />}
+      {/* <TodoDropIcon className='todoDropicon' /> */}
       {isOpen && (
         <OkrDropContainer>
           <h2>KR 핵심 결과 선택</h2>

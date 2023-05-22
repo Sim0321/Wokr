@@ -1,4 +1,8 @@
-import { PrioritySelect, TodoDropIcon } from '../../../styles/dropDown.styled';
+import {
+  PrioritySelect,
+  TodoDropFillIcon,
+  TodoDropIcon,
+} from '../../../styles/dropDown.styled';
 import { useDropDown, priority } from './dropdown';
 import { useState, useRef } from 'react';
 
@@ -6,6 +10,8 @@ const PriorityDropDown = ({ todoInfo, setTodoInfo }) => {
   const dropDownRef = useRef(null);
   const [isOpen, setIsOpen] = useDropDown(dropDownRef, false);
   const [finalValue, setFinalValue] = useState('');
+
+  const [onFocus, setOnFocus] = useState(false);
   const DropDownItem = ({
     value,
     setFinalValue,
@@ -48,8 +54,14 @@ const PriorityDropDown = ({ todoInfo, setTodoInfo }) => {
         // readOnly={true}
         onClick={() => setIsOpen(!isOpen)}
         placeholder='우선순위'
+        onMouseLeave={() => {
+          setOnFocus(!onFocus);
+        }}
+        onMouseEnter={() => {
+          setOnFocus(!onFocus);
+        }}
       />
-      <TodoDropIcon />
+      {onFocus ? <TodoDropFillIcon /> : <TodoDropIcon />}
       {isOpen && (
         <ul>
           {priority.list.map((el, index) => (
