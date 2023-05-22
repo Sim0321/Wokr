@@ -15,7 +15,7 @@ const OkrDropDown = ({ setKid, setOid, title }) => {
   const [isOpen, setIsOpen] = useDropDown(dropDownRef, false);
 
   const [valueState, setValueState] = useState(false);
-
+  //ㅇ
   const [finalValue, setFinalValue] = useState('');
 
   const [onFocus, setOnFocus] = useState(false);
