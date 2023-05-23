@@ -1,12 +1,39 @@
+import { GetKR } from '../../apis/apiGET';
+import { krDataAtom, todoDateInfo } from '../../store/store';
 import { DetailTodoWrap } from '../../styles/tododetail.styled';
 import Toast from './../global/Toast';
 import DetailTodoItem from './DetailTodoItem';
 import TeamTodo from './TeamTodo';
 import TodoNavi from './TodoNavi';
+import { useQuery } from '@tanstack/react-query';
+import { useEffect } from 'react';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 
 export default function Todo() {
-  //todo 전부 가져오기
+  const [info, setInfo] = useRecoilState(todoDateInfo);
+
+  const setKrData = useSetRecoilState(krDataAtom);
+
+  const { data: getKr } = useQuery(['KR'], GetKR, {
+    onSuccess: response => {
+      setKrData(response);
+      // todo페이지에서 필요한 kr id
+      const filterArray = response.map(el => el.keyResultId);
+      filterArray.push(0);
+      setInfo({ ...info, KeyResultIds: filterArray });
+    },
+  });
+
+  useEffect(() => {
+    if (info.targetDate === '' || info.teamMembers.length === 0) {
+      setInfo({
+        ...info,
+        targetDate: localStorage.getItem('today'),
+        teamMembers: [JSON.parse(localStorage.getItem('userId'))],
+      });
+    }
+  }, []);
 
   return (
     <StSticky>

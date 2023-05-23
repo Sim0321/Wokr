@@ -64,7 +64,7 @@ export default function DashTodo({ todayFormat }) {
           </NotHaveEl>
         ) : (
           <StTodoItem>
-            <TodoItem todayFormat={todayFormat} />
+            <TodoItem />
           </StTodoItem>
         )}
       </TodoContainer>

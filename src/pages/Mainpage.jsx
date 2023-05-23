@@ -5,7 +5,14 @@ import DashOKR from '../components/dashboard/okr/DashOKR';
 import Loading from '../components/global/Loading';
 import Tutorial from '../components/global/Tutorial';
 import Portal from '../components/global/globalModal/Potal';
-import { krDataAtom, showTutorial, userDetail, userId } from '../store/store';
+import {
+  krDataAtom,
+  showTutorial,
+  todayFormat,
+  todoDateInfo,
+  userDetail,
+  userId,
+} from '../store/store';
 import {
   OkrContainer,
   StWrap,
@@ -26,12 +33,12 @@ export default function Mainpage() {
   // 튜토리얼
   const [showTutorialState, setShowTutorialState] =
     useRecoilState(showTutorial);
-  // console.log(showTutorialState);
+
+  const [info, setInfo] = useRecoilState(todoDateInfo);
+  const setToday = useSetRecoilState(todayFormat);
 
   // 유저 id 상태관리
   const setUid = useSetRecoilState(userId);
-  // const [test, setTest] = useRecoilState(userId);
-  // console.log(test);
 
   const [decodeId, setDecodeId] = useState(0);
 
@@ -59,43 +66,38 @@ export default function Mainpage() {
         setShowTutorialState(data.firstLogin);
         setUserInfo(data);
         localStorage.setItem('userId', data.userId);
+        setInfo({ ...info, teamMembers: [data.userId] });
         setUid(data.userId);
       },
     }
   );
 
-  //okrData
-  const setKrData = useSetRecoilState(krDataAtom);
-
-  const { data: getKr } = useQuery(['KR'], GetKR, {
-    onSuccess: response => {
-      setKrData(response);
-      // todo페이지에서 필요한 kr id
-      const filterArray = response.map(el => el.keyResultId);
-      filterArray.push(0);
-      localStorage.setItem('kr', JSON.stringify(filterArray));
-    },
-  });
-
   const now = new Date();
-  let today = '';
-  if (now.getMonth() + 1 < 10 && now.getDate() < 10) {
-    today = `${now.getFullYear()}-0${now.getMonth() + 1}-0${now.getDate()}`;
-    localStorage.setItem('targetDate', today);
-    localStorage.setItem('today', today);
-  } else if (now.getDate() < 10) {
-    today = `${now.getFullYear()}-${now.getMonth() + 1}-0${now.getDate()}`;
-    localStorage.setItem('targetDate', today);
-    localStorage.setItem('today', today);
-  } else if (now.getMonth() + 1 < 10) {
-    today = `${now.getFullYear()}-0${now.getMonth() + 1}-${now.getDate()}`;
-    localStorage.setItem('targetDate', today);
-    localStorage.setItem('today', today);
-  } else {
-    today = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
-    localStorage.setItem('targetDate', today);
-    localStorage.setItem('today', today);
-  }
+  useEffect(() => {
+    let today = '';
+    if (now.getMonth() + 1 < 10 && now.getDate() < 10) {
+      today = `${now.getFullYear()}-0${now.getMonth() + 1}-0${now.getDate()}`;
+      // localStorage.setItem('targetDate', today);
+      setToday(today);
+      localStorage.setItem('today', today);
+      setInfo({ ...info, targetDate: today });
+    } else if (now.getDate() < 10) {
+      today = `${now.getFullYear()}-${now.getMonth() + 1}-0${now.getDate()}`;
+      setToday(today);
+      localStorage.setItem('today', today);
+      setInfo({ ...info, targetDate: today });
+    } else if (now.getMonth() + 1 < 10) {
+      today = `${now.getFullYear()}-0${now.getMonth() + 1}-${now.getDate()}`;
+      setToday(today);
+      localStorage.setItem('today', today);
+      setInfo({ ...info, targetDate: today });
+    } else {
+      today = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
+      setToday(today);
+      localStorage.setItem('today', today);
+      setInfo({ ...info, targetDate: today });
+    }
+  }, []);
 
   if (isLoading) {
     return <Loading />;
@@ -111,7 +113,7 @@ export default function Mainpage() {
           <main>
             <OkrContainer>
               <DashOKR />
-              <DashTodo todayFormat={today} />
+              <DashTodo />
             </OkrContainer>
             <DashBoardCalendar />
           </main>

@@ -453,13 +453,13 @@ const DetailTodoItem = () => {
           <h3 className='errorMsg'>완료 필터링을 확인해주세요.</h3>
         </>
       ) : // Kr을 선택하지 않고, 완료 필터링도 선택하지 않았을 때
-      isCompletion.length === 0 && info.KeyResultIds.length === 0 ? (
+      isCompletion.length === 0 && info?.KeyResultIds.length === 0 ? (
         <>
           <h2 className='result'>검색결과 없음</h2>
           <h3 className='errorMsg'>둘다 없음</h3>
         </>
       ) : //  kr을 선택하지 않았을 때
-      info.KeyResultIds.length === 0 ? (
+      info?.KeyResultIds.length === 0 ? (
         <>
           <h2 className='result'>검색결과 없음</h2>
           <h3 className='errorMsg'>KR을 선택하지 않았습니다.</h3>

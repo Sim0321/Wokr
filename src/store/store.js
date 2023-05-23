@@ -20,7 +20,7 @@ export const userId = atom({
 
 export const todayFormat = atom({
   key: 'todayFormat',
-  default: localStorage.getItem('targetDate'),
+  default: '',
 });
 
 export const ToggleStartState = atom({ key: 'toggle', default: false });
@@ -98,13 +98,12 @@ export const clickDate = atom({
   default: null,
 });
 
-//
 export const todoDateInfo = atom({
   key: 'todoDateInfo',
   default: {
-    targetDate: localStorage.getItem('targetDate'),
-    teamMembers: [JSON.parse(localStorage.getItem('userId'))],
-    KeyResultIds: JSON.parse(localStorage.getItem('kr')),
+    targetDate: '',
+    teamMembers: [],
+    KeyResultIds: [],
     orderby: 'endDate',
     orderbyrole: 'desc',
   },
