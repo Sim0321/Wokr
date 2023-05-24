@@ -115,7 +115,7 @@ export const dateArray = atom({
   default: {
     Sunday: '',
     Saturday: '',
-    teamMembers: [Number(localStorage.getItem('userId'))],
+    teamMembers: [],
   },
 });
 

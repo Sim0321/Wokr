@@ -89,12 +89,21 @@ const TodoNavi = () => {
   const [forData, setForData] = useRecoilState(dateArray);
 
   useEffect(() => {
-    setForData({
-      ...forData,
-      Sunday: state.week[0].format,
-      Saturday: state.week[6].format,
-      teamMembers: dateInfo.teamMembers,
-    });
+    if (forData.teamMembers.length === 0) {
+      setForData({
+        ...forData,
+        Sunday: state.week[0].format,
+        Saturday: state.week[6].format,
+        teamMembers: [JSON.parse(localStorage.getItem('userId'))],
+      });
+    } else {
+      setForData({
+        ...forData,
+        Sunday: state.week[0].format,
+        Saturday: state.week[6].format,
+        teamMembers: dateInfo.teamMembers,
+      });
+    }
   }, [state]);
 
   //include 백에게 요청

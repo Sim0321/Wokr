@@ -44,7 +44,7 @@ export default function DashTodo({ todayFormat }) {
   return (
     <Container>
       <HeaderBox>
-        <Header>To-do</Header>
+        <Header>오늘의 To-do</Header>
         <div className='btnBox'>
           <div onClick={createTodo}>
             <img src={plus} alt='plus' />
