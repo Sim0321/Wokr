@@ -91,21 +91,14 @@ const OkrItem = () => {
     }
   };
 
-  // const progressModalOutSideClick = e => {
-  //   if (progressModalRef.current === e.target) {
-  //     setOkrModalOn(!progressModalOn);
-  //   }
-  // };
-
   const [KRArray, setKRArray] = useState([]);
-  // const value = useRecoilValue(krDataAtom);
   const { data: getOKRData } = useQuery(['OKR'], GetOKR, {
     onSuccess: response => {
-      const newArray = response.map(data => {
-        const newKRArray = [...data.keyresult];
+      const newArray = response.map(el => {
+        const newKRArray = [...el.keyresult];
         newKRArray.sort((a, b) => a.krNumber - b.krNumber);
         return {
-          ...data,
+          ...el,
           keyresult: newKRArray,
         };
       });

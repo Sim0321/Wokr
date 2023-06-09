@@ -22,6 +22,7 @@ export default function Todo() {
       const filterArray = response.map(el => el.keyResultId);
       filterArray.push(0);
       setInfo({ ...info, KeyResultIds: filterArray });
+      localStorage.setItem('kr', JSON.stringify(filterArray));
     },
   });
 

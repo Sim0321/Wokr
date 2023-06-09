@@ -18,6 +18,7 @@ const KrFilter = () => {
   const [checkedList, setCheckedList] = useState([]);
   const [checkInfo, setCheckInfo] = useState([]);
   const [forData, setForData] = useState([]);
+  // console.log(forData);
 
   const { data: getKrData } = useQuery(['KR'], GetKR, {
     refetchOnWindowFocus: false,

@@ -63,6 +63,7 @@ export default function Mainpage() {
     {
       enabled: !!decodeId,
       onSuccess: data => {
+        console.log(data);
         setShowTutorialState(data.firstLogin);
         setUserInfo(data);
         localStorage.setItem('userId', data.userId);
@@ -71,6 +72,19 @@ export default function Mainpage() {
       },
     }
   );
+
+  const setKrData = useSetRecoilState(krDataAtom);
+
+  const { data: getKr } = useQuery(['KR'], GetKR, {
+    onSuccess: response => {
+      setKrData(response);
+      // todo페이지에서 필요한 kr id
+      const filterArray = response.map(el => el.keyResultId);
+      filterArray.push(0);
+      setInfo({ ...info, KeyResultIds: filterArray });
+      localStorage.setItem('kr', JSON.stringify(filterArray));
+    },
+  });
 
   const now = new Date();
   useEffect(() => {
