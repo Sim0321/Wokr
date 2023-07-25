@@ -20,7 +20,7 @@
 
 - 📍 2023.03.08 ~ 진행 중(리펙토링)
 
-### 🔗 [WOKR 사이트 🔥](https://wokr.shop/)
+### 🔗 [WOKR 시연영상 🔥](https://www.youtube.com/watch?v=p_1lHQYaL4M)
 
 ### 🔗 [자세한 프로젝트 정보 🔥](https://github.com/Sim0321/Wokr/wiki)
 
