@@ -46,7 +46,7 @@
 
 ---
 
-## 자세한 정보
+## 자세한 정보(WIKI)
 
 🔗 [WIKI로 이동](https://github.com/Sim0321/Wokr/wiki)
 
