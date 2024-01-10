@@ -22,7 +22,7 @@
 
 ### 🔗 [WOKR 시연영상 🔥](https://www.youtube.com/watch?v=p_1lHQYaL4M)
 
-### 🔗 [자세한 프로젝트 정보 🔥](https://github.com/Sim0321/Wokr/wiki)
+### 🔗 [자세한 프로젝트 정보 WIKI로 🔥](https://github.com/Sim0321/Wokr/wiki)
 
 ---
 
@@ -45,10 +45,6 @@
 </p>
 
 ---
-
-## 자세한 정보(WIKI)
-
-🔗 [WIKI로 이동](https://github.com/Sim0321/Wokr/wiki)
 
 ## Lighthouse 성능 점수
 
