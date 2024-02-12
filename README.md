@@ -1,6 +1,6 @@
 ![header](https://capsule-render.vercel.app/api?type=waving&text=WOKR&color=auto&height=200&align=center&animation=scaleIn)
 
-# 팀원들과 함께하는 OKR방식의 To - Do - <a href="https://wokr.shop/" target="_blank">워케이알</a>
+# 팀원들과 함께하는 OKR방식의 To - Do - 워케이알
 
 ## 🔥프로젝트 소개
 
